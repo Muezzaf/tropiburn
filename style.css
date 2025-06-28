@@ -69,7 +69,7 @@ body.dark-mode textarea {
 }
 
 .navbar .nav-links {
-  list-style: none;
+  list-style: none; /* Penting untuk menghilangkan titik pada menu navigasi */
   display: flex;
   gap: 20px;
   padding: 0;
@@ -173,49 +173,55 @@ input, textarea {
   font-size: 1em;
 }
 
-/* Gaya untuk Grid Produk */
+/* Gaya untuk Grid Produk (di products.html) */
 .product-grid {
   display: grid;
-  /* Akan mencoba membuat sebanyak mungkin kolom dengan min 280px,
-     dan 1fr akan memastikan kolom mengisi ruang yang tersisa */
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px; /* Jarak antar kartu produk */
+  gap: 20px;
   margin-top: 30px;
-  justify-items: center; /* Menengahkan item dalam grid */
+  justify-items: center;
 }
 
-/* Gaya untuk setiap item produk yang dapat diklik */
 .product-item {
-    text-decoration: none; /* Menghilangkan garis bawah pada tautan */
-    color: inherit; /* Menggunakan warna teks bawaan dari body */
-    cursor: pointer; /* Menampilkan kursor pointer saat di-hover */
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Efek transisi untuk hover */
-    display: block; /* Memastikan elemen <a> mengisi seluruh area kartu */
-    width: 100%; /* Memastikan item produk mengambil lebar penuh dalam kolom grid */
-    max-width: 350px; /* Opsional: Batasi lebar maksimum untuk setiap kartu produk */
-    text-align: left; /* Teks di dalam kartu rata kiri */
-    /* Menggunakan kembali properti card-style yang sudah ada */
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    display: block;
+    width: 100%;
+    max-width: 350px;
+    text-align: left;
     background: #fff;
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* Efek saat item produk di-hover */
 .product-item:hover {
-    transform: translateY(-5px); /* Mengangkat kartu sedikit saat di-hover */
-    box-shadow: 0 6px 15px rgba(0,0,0,0.15); /* Efek bayangan yang lebih menonjol */
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
 
-/* Penyesuaian warna teks untuk mode gelap pada product-item */
 body.dark-mode .product-item {
-    color: #f0f0f0; /* Memastikan teks terlihat di mode gelap */
-    background-color: #2a2a2a; /* Warna latar belakang kartu di mode gelap */
+    color: #f0f0f0;
+    background-color: #2a2a2a;
 }
 
-/* Mengatur ulang perataan teks di dalam product-item agar rata kiri */
 .product-item h3, .product-item p {
     text-align: left;
+}
+
+/* Gaya untuk daftar di index.html (jika masih menggunakan ul/li di masa depan) */
+.product-description ul,
+.why-list ul {
+  list-style: none; /* Menghilangkan titik dari daftar */
+  padding: 0;
+  margin: 0;
+}
+
+.product-description li,
+.why-list li {
+  margin-bottom: 5px; /* Jarak antar item daftar */
 }
 
 
@@ -237,28 +243,22 @@ body.dark-mode .product-item {
     margin-top: 10px;
   }
 
-  /* Pastikan contact-grid menjadi satu kolom di layar kecil */
-  .contact-grid {
-    grid-template-columns: 1fr;
-    padding: 0 10px; /* Menambah sedikit padding horizontal */
-  }
-
-  /* Pastikan product-grid menjadi satu kolom di layar kecil */
+  .contact-grid,
   .product-grid {
-    grid-template-columns: 1fr; /* Memaksa satu kolom di layar kecil */
-    padding: 0 10px; /* Menambah sedikit padding horizontal untuk menghindari menempel di tepi */
+    grid-template-columns: 1fr;
+    padding: 0 10px;
   }
 
-  .product-item {
-    max-width: 100%; /* Memastikan item produk tidak melebihi lebar layar */
+  .product-item,
+  .contact-item {
+    max-width: 100%;
   }
 
   .main-content {
-    padding: 10px; /* Mengurangi padding main-content di layar kecil */
+    padding: 10px;
   }
 }
 
-/* Media Query tambahan untuk layar yang sangat kecil (misal iPhone SE, dll) */
 @media (max-width: 480px) {
   .navbar {
     padding: 10px;
